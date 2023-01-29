@@ -7,7 +7,7 @@ public class PlayerJump : MonoBehaviour
 
     public float JumpSpeed = 0.2f;
     private Rigidbody rb;
-    public float thrust = 5;
+    public float thrust = 55;
     bool m_isGrounded;
 
     void Start()
