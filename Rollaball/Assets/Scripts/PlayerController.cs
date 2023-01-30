@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private float movementY;
     private SceneSwitcher sceneSw;
     private PlayAudio playAudio;
+    private Vector3 startPoint;
 
     void Start()
     {
@@ -25,12 +26,18 @@ public class PlayerController : MonoBehaviour
         winTextObject.SetActive(false);
         sceneSw = GetComponent<SceneSwitcher>();
         playAudio = GetComponent<PlayAudio>();
+        startPoint = transform.position;
     }
 
     void FixedUpdate()
     {
         Vector3 movement = new Vector3(movementX, 0.0f, movementY);
         rb.AddForce(movement * speed);
+
+        if (transform.position.y <= -15)
+        {
+            transform.position = startPoint;
+        }
     }
 
     void OnMove(InputValue movementValue)
