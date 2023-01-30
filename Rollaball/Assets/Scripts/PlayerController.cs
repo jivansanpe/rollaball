@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     private SceneSwitcher sceneSw;
     private PlayAudio playAudio;
     private Vector3 startPoint;
+    private AudioSource audioSource;
 
     void Start()
     {
@@ -27,6 +28,7 @@ public class PlayerController : MonoBehaviour
         sceneSw = GetComponent<SceneSwitcher>();
         playAudio = GetComponent<PlayAudio>();
         startPoint = transform.position;
+        audioSource = GetComponent<AudioSource>();
     }
 
     void FixedUpdate()
@@ -70,6 +72,7 @@ public class PlayerController : MonoBehaviour
             other.gameObject.SetActive(false);
             count = count + 1;
             SetCountText();
+            audioSource.Play();
         }
 
     }
