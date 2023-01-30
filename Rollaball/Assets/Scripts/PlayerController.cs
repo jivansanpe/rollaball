@@ -44,8 +44,13 @@ public class PlayerController : MonoBehaviour
         if (count >= 8)
         {
             winTextObject.SetActive(true);
-            sceneSw.OpenScene(SceneManager.GetActiveScene().buildIndex + 1);
+            Invoke("OpenSceneWithDelay", 5f);
         }
+    }
+
+    void OpenSceneWithDelay()
+    {
+        sceneSw.OpenScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     private void OnTriggerEnter(Collider other)
