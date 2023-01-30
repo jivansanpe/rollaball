@@ -1,8 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using System;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private int count;
     private float movementX;
     private float movementY;
+    private SceneSwitcher sceneSw;
 
     void Start()
     {
@@ -21,6 +22,7 @@ public class PlayerController : MonoBehaviour
         count = 0;
         SetCountText();
         winTextObject.SetActive(false);
+        sceneSw = GetComponent<SceneSwitcher>();
     }
 
     void FixedUpdate()
@@ -42,6 +44,7 @@ public class PlayerController : MonoBehaviour
         if (count >= 8)
         {
             winTextObject.SetActive(true);
+            sceneSw.OpenScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 
