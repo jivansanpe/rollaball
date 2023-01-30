@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private float movementX;
     private float movementY;
     private SceneSwitcher sceneSw;
+    private PlayAudio playAudio;
 
     void Start()
     {
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour
         SetCountText();
         winTextObject.SetActive(false);
         sceneSw = GetComponent<SceneSwitcher>();
+        playAudio = GetComponent<PlayAudio>();
     }
 
     void FixedUpdate()
@@ -44,6 +46,7 @@ public class PlayerController : MonoBehaviour
         if (count >= 8)
         {
             winTextObject.SetActive(true);
+            playAudio.DropAudio();
             Invoke("OpenSceneWithDelay", 5f);
         }
     }

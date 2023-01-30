@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1340220192011764674}
   - component: {fileID: 3539865033320422399}
   m_Layer: 0
-  m_Name: Audio
+  m_Name: Audio PickUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
